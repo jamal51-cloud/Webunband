@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Ajukan Unban WhatsApp</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #111;
+      color: #0f0;
+      text-align: center;
+      padding: 40px;
+    }
+    input, textarea, button {
+      display: block;
+      width: 80%;
+      max-width: 400px;
+      margin: 15px auto;
+      padding: 10px;
+      background-color: #000;
+      color: #0f0;
+      border: 1px solid #0f0;
+    }
+    button {
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>🛑 Formulir Banding Unban WA</h1>
+  <p>Isi formulir ini, lalu tekan Kirim untuk menghubungi WhatsApp Support</p>
+
+  <form id="unbanForm" onsubmit="sendEmail(); return false;">
+    <input type="text" id="nomor" placeholder="Masukkan nomor WA (+62...)" required />
+    <textarea id="alasan" placeholder="Alasan kenapa WA Anda harus diaktifkan kembali" required></textarea>
+    <button type="submit">Kirim ke WhatsApp Support</button>
+  </form>
+
+  <script>
+    function sendEmail() {
+      const nomor = document.getElementById("nomor").value;
+      const alasan = document.getElementById("alasan").value;
+      const subject = encodeURIComponent("Permintaan Unban WhatsApp");
+      const body = encodeURIComponent(
+        `Halo tim WhatsApp,\n\nSaya ingin mengajukan banding untuk nomor saya: ${nomor}\n\nAlasan:\n${alasan}\n\nTerima kasih.`
+      );
+      window.location.href = `mailto:support@support.whatsapp.com?subject=${subject}&body=${body}`;
+    }
+  </script>
+</body>
+</html>
